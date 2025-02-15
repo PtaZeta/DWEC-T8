@@ -7,16 +7,16 @@ function A2U8() {
   const [terminado, setTerminado] = useState(false);
 
   useEffect(() => {
-    let timer;
+    let temporizador;
     if (conteo && actuales < segundos) {
-      timer = setInterval(() => {
+      temporizador = setInterval(() => {
         setActuales(prev => prev + 1);
       }, 1000);
     } else if (actuales >= segundos && conteo) {
       setConteo(false);
       setTerminado(true);
     }
-    return () => clearInterval(timer);
+    return () => clearInterval(temporizador);
   }, [conteo, actuales, segundos]);
 
   return (
